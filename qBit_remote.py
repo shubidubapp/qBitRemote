@@ -4,9 +4,7 @@
 # Simple bot for using qBit client via Telegram.
 
 import bot_auth
-from telegram import (ReplyKeyboardMarkup, ReplyKeyboardRemove)
-from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters, RegexHandler,
-                          ConversationHandler)
+from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters, ConversationHandler)
 import logging
 import re
 from qbittorrent import Client
@@ -161,8 +159,7 @@ class Bot:
     def cancel(self, bot, update):
         user = update.message.from_user
         self.logger.info("User %s canceled the conversation." % user.first_name)
-        update.message.reply_text('Bye! I hope we can talk again some day.',
-                                  reply_markup=ReplyKeyboardRemove())
+        update.message.reply_text('Bye! I hope we can talk again some day.')
         self.ip_port_text = None
 
         return ConversationHandler.END
